@@ -9,7 +9,10 @@
   --darker: #191a20;
   --light: #cccccc;
   --lighter: #ffffff;
+
   --default-border-radius: 8px;
+
+  --dark-button: #494949;
 }
 
 body {

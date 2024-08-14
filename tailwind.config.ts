@@ -16,6 +16,9 @@ const config: Config = {
       borderWidth: {
         "1": "1px",
       },
+      fontSize: {
+        xxs: "12px",
+      },
       colors: {
         primary: "var(--primary)",
         background: "var(--background)",
@@ -23,9 +26,7 @@ const config: Config = {
         darker: "var(--darker)",
         light: "var(--light,--tw-opacity)",
         lighter: "var(--lighter)",
-      },
-      borderColor: {
-        light: "var(--light,--tw-border-opacity)",
+        ["dark-button"]: "var(--dark-button)",
       },
       borderRadius: {
         default: "var(--default-border-radius)",
