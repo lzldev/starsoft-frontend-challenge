@@ -1,4 +1,5 @@
 import { Products } from "./(products)/Products";
+import { ShoppingCart } from "./(ShoppingCart)/ShoppingCart";
 import { Navbar } from "./components/Navbar";
 import { Rights } from "./components/Rights";
 
@@ -8,6 +9,7 @@ export default function Home() {
       <Navbar />
       <Products />
       <Rights />
+      <ShoppingCart />
     </main>
   );
 }
