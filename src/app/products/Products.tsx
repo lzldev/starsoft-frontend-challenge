@@ -1,5 +1,6 @@
 "use client";
 
+import { useProducts } from "@/lib/query/useProducts";
 import { LoadingButton } from "../components/LoadingButton";
 import { ProductCard } from "./ProductCard";
 
@@ -20,6 +21,9 @@ export function Products() {
     "Lorem Ipsum",
     "Lorem Ipsum",
   ];
+
+  const { data } = useProducts();
+  console.log(data);
 
   return (
     <div className="flex flex-col items-center flex-1 w-full h-full pt-8">
