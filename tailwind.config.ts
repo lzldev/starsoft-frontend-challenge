@@ -13,6 +13,23 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      borderWidth: {
+        "1": "1px",
+      },
+      colors: {
+        primary: "var(--primary)",
+        background: "var(--background)",
+        dark: "var(--dark)",
+        darker: "var(--darker)",
+        light: "var(--light,--tw-opacity)",
+        lighter: "var(--lighter)",
+      },
+      borderColor: {
+        light: "var(--light,--tw-border-opacity)",
+      },
+      borderRadius: {
+        default: "var(--default-border-radius)",
+      },
     },
   },
   plugins: [],
