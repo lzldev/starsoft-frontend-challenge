@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { ProductSchema } from "./products";
+import { ProductSchema } from "./product";
 
 export const PaginationMetadataSchema = z.object({
   page: z.number(),

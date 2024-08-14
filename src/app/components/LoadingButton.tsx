@@ -8,6 +8,8 @@ export type LoadingButtonProps = {
 } & ButtonHTMLAttributes<HTMLButtonElement>;
 
 export function LoadingButton({ value, ...buttonProps }: LoadingButtonProps) {
+  const fullyLoaded = value >= 100;
+
   return (
     <div className="flex flex-col gap-[10px] w-[430px]">
       <div className="flex w-full h-[10px] rounded-default bg-dark-button overflow-clip">
@@ -21,9 +23,10 @@ export function LoadingButton({ value, ...buttonProps }: LoadingButtonProps) {
       <Button
         className="h-20 px-10 rounded-[4px]"
         variant="dark"
+        disabled={fullyLoaded}
         {...buttonProps}
       >
-        {value === 100 ? "Você já viu tudo" : "Carregar Mais"}
+        {fullyLoaded ? "Você já viu tudo" : "Carregar Mais"}
       </Button>
     </div>
   );

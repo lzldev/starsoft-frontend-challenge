@@ -8,6 +8,7 @@ export type ButtonProps = {
 export function Button({
   variant = "primary",
   children,
+  className,
   ...htmlButtonProps
 }: ButtonProps) {
   const backgroundVariantClass = cn(
@@ -21,9 +22,10 @@ export function Button({
     <button
       className={cn(
         backgroundVariantClass,
-        "px-[26px] py-[10px] rounded-default text-lighter font-semibold hover:bg-light",
-        htmlButtonProps.className
+        "px-[26px] py-[10px] rounded-default text-lighter font-semibold enabled:hover:bg-light",
+        className
       )}
+      {...htmlButtonProps}
     >
       {children}
     </button>

@@ -1,4 +1,4 @@
-import { ZodSchema } from "zod";
+import { z, ZodSchema } from "zod";
 import { API_URL } from "./constants";
 
 export const zFetch = <TSchema extends ZodSchema>(
@@ -13,4 +13,4 @@ export const zFetch = <TSchema extends ZodSchema>(
       }
       return r.json();
     })
-    .then((value) => schema.parseAsync(value));
+    .then((value) => schema.parseAsync(value) as Promise<z.output<TSchema>>);
