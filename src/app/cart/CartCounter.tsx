@@ -4,6 +4,8 @@ import Image from "next/image";
 export type CartCounterProps = {
   className?: string;
   value: number;
+  min?: number;
+  max?: number;
   onIncrement: (count: number) => any;
   onDecrement: (count: number) => any;
 };
@@ -12,6 +14,8 @@ export function CartCounter({
   value,
   onDecrement,
   onIncrement,
+  max,
+  min = 1,
   className,
 }: CartCounterProps) {
   return (
@@ -24,6 +28,9 @@ export function CartCounter({
       <button
         className="flex flex-1 h-full hover:bg-dark justify-center items-center text-center"
         onClick={() => {
+          if (value <= min) {
+            return;
+          }
           onDecrement(value === 1 ? 0 : value - 1);
         }}
       >
@@ -35,6 +42,9 @@ export function CartCounter({
       <button
         className="flex flex-1 h-full hover:bg-dark justify-center items-center text-center"
         onClick={() => {
+          if (max && value >= max) {
+            return;
+          }
           onIncrement(value + 1);
         }}
       >

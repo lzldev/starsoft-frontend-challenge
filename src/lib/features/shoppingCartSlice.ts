@@ -21,19 +21,19 @@ export const shoppingCartSlice = createSlice({
   initialState,
   reducers: (create) => ({
     removeProduct: create.reducer(
-      (state, { payload }: PayloadAction<Product>) => {
+      (state, { payload }: PayloadAction<{ id: number; count: number }>) => {
         const product = state.products[payload.id];
 
         if (!product) {
           return;
         }
 
-        if (product.count > 1) {
-          product.count--;
+        if (product.count - payload.count <= 0) {
+          delete state.products[payload.id];
           return;
         }
 
-        delete state.products[payload.id];
+        product.count -= payload.count;
       }
     ),
     addProduct: create.reducer((state, { payload }: PayloadAction<Product>) => {
