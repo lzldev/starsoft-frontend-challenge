@@ -27,6 +27,7 @@ const config: Config = {
         light: "var(--light,--tw-opacity)",
         lighter: "var(--lighter)",
         ["dark-button"]: "var(--dark-button)",
+        "cart-item-background": "var(--cart-item-background)",
       },
       borderRadius: {
         default: "var(--default-border-radius)",

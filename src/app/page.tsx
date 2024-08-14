@@ -1,5 +1,5 @@
-import { Products } from "./(products)/Products";
-import { ShoppingCart } from "./(ShoppingCart)/ShoppingCart";
+import { Products } from "./products/Products";
+import { ShoppingCart } from "./cart/ShoppingCart";
 import { Navbar } from "./components/Navbar";
 import { Rights } from "./components/Rights";
 
