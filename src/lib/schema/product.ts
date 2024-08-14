@@ -6,9 +6,7 @@ export const ProductSchema = z.object({
   description: z.string(),
   image: z.string(),
   price: z.number(),
-  createdAt: z.date({
-    coerce: true,
-  }),
+  createdAt: z.string(),
 });
 
 export type Product = z.output<typeof ProductSchema>;

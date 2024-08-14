@@ -6,6 +6,7 @@ const rootReducer = combineSlices(shoppingCartSlice);
 export const makeStore = () => {
   return configureStore({
     reducer: rootReducer,
+    devTools: true,
   });
 };
 
