@@ -1,5 +1,5 @@
 "use client";
-import { showCart } from "@/lib/features/shoppingCartSlice";
+import { toggleCart } from "@/lib/features/shoppingCartSlice";
 import { useAppDispatch } from "@/lib/hooks";
 import Image from "next/image";
 
@@ -8,7 +8,7 @@ export function ShoppingCartButton() {
   return (
     <button
       className="flex items-center justify-center gap-1 p-2 select-none rounded-default hover:bg-dark "
-      onClick={() => dispatch(showCart())}
+      onClick={() => dispatch(toggleCart())}
     >
       <Image
         src="icon_shopping_cart.svg"

@@ -21,7 +21,7 @@ export function Button({
     <button
       className={cn(
         backgroundVariantClass,
-        "px-[26px] py-[10px] rounded-default text-lighter font-semibold",
+        "px-[26px] py-[10px] rounded-default text-lighter font-semibold hover:bg-light",
         htmlButtonProps.className
       )}
     >

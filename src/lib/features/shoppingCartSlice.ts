@@ -21,7 +21,7 @@ export const shoppingCartSlice = createSlice({
       state.showCart = false;
     }),
     toggleCart: create.reducer((state) => {
-      state.showCart = state.showCart;
+      state.showCart = !state.showCart;
     }),
   }),
   selectors: {

@@ -9,30 +9,23 @@ import { ShoppingCartItem } from "./ShoppingCarItem";
 
 export function ShoppingCart() {
   const show = useAppSelector(selectShowCart);
-
-  if (!show) {
-    return <></>;
-  }
-  return <ShoppingCartInner />;
-}
-
-function ShoppingCartInner() {
   const dispatch = useAppDispatch();
 
   const products = ["lorem", "lorem", "lorem", "lorem", "lorem", "lorem"];
 
+  if (!show) {
+    return <></>;
+  }
+
   return (
     <div className="w-full min-[800px]:w-[690px] h-screen max-h-screen min-h-screen fixed bg-dark z-10 overflow-hidden min-[800px]:left-0 flex flex-col p-8">
-      <div className="flex items-center gap-4 pb-6">
+      <div className="flex items-center gap-4">
         <BackButton onClick={() => dispatch(hideCart())} />
-        <span
-          className="flex items-center justify-center flex-grow font-medium text-lg"
-          flex-1
-        >
+        <span className="flex items-center justify-center flex-grow" flex-1>
           Mochila de Compras
         </span>
       </div>
-      <div className="flex flex-grow overflow-y-auto flex-col gap-y-16 px-2">
+      <div className="flex flex-grow overflow-y-scroll flex-col gap-y-16">
         {products.map((_, i) => (
           <ShoppingCartItem key={i} />
         ))}

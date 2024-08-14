@@ -17,9 +17,9 @@ export function ShoppingCartItem() {
       </div>
       <div className="flex flex-col flex-1">
         <div className="flex-col flex flex-1">
-          <span className="font-medium">Title</span>
-          <span className="font-light text-xxs flex-grow w-full line-clamp-1">
-            Description
+          <span className="text-xl font-medium text-white">Name</span>
+          <span className="overflow-hidden break-all align-top text-xxs font-lighter text-ellipsis line-clamp-1">
+            Redesigned from scratch and completely revised.
           </span>
         </div>
         <ETHPrice price={12} />
