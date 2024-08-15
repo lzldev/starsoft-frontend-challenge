@@ -21,7 +21,7 @@ export function CartCounter({
   return (
     <div
       className={cn(
-        "flex rounded-default items-center justify-center bg-darker overflow-clip select-none w-[115px] h-[49px]",
+        "flex rounded-default items-center justify-center bg-background overflow-clip select-none w-[115px] h-[49px]",
         className
       )}
     >

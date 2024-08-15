@@ -8,7 +8,7 @@ export function BackButton({ children, ...buttonProps }: BackButtonProps) {
   return (
     <button
       className={cn(
-        "bg-background hover:bg-darker size-12 rounded-full items-center justify-center flex text-center align-middle pt-0.5 text-primary",
+        "bg-dark hover:bg-dark size-14 rounded-full items-center justify-center flex text-center align-middle pt-0.5 text-primary",
         buttonProps.className
       )}
       {...buttonProps}

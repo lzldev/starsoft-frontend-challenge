@@ -14,6 +14,9 @@ import { BackButton } from "../components/BackButton";
 import { ShoppingCartItem } from "./ShoppingCartItem";
 import { useFakeMutation } from "@/lib/mutation/useFakeMutation";
 
+/*
+  Keeps component from re-rendering when not shown
+*/
 export function ShoppingCart() {
   const show = useAppSelector(selectShowCart);
 
@@ -34,11 +37,11 @@ function ShoppingCartInner() {
   });
 
   return (
-    <div className="w-full min-[800px]:w-[690px] h-screen max-h-screen min-h-screen fixed bg-dark z-10 overflow-hidden min-[800px]:left-0 flex flex-col p-8">
+    <div className="w-full min-[800px]:w-[690px] h-screen fixed bg-background z-10 overflow-hidden min-[800px]:left-0 flex flex-col p-8 shadow-lg shadow-black">
       <div className="flex items-center gap-4 pb-6">
         <BackButton onClick={() => dispatch(hideCart())} />
         <span
-          className="flex items-center justify-center flex-grow font-medium text-lg"
+          className="flex items-center justify-center flex-grow font-medium text-2xl"
           flex-1
         >
           Mochila de Compras
