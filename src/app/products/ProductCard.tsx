@@ -10,14 +10,14 @@ export type ProductCardProps = {
   product: Product;
 };
 
-const selectAdded = createSelector(
+const selectIsAdded = createSelector(
   [selectProducts, (_, id: number) => id],
   (products, productId) => !!products[productId]
 );
 
 export function ProductCard({ product }: ProductCardProps) {
   const dispatch = useAppDispatch();
-  const added = useAppSelector((s) => selectAdded(s, product.id));
+  const added = useAppSelector((s) => selectIsAdded(s, product.id));
 
   return (
     <div className="w-[345px] h-[555px]  bg-darker flex flex-col items-center justify-center gap-12 p-7 rounded-default">
