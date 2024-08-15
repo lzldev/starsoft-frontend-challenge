@@ -1,6 +1,7 @@
 "use client";
 
 import {
+  clearCart,
   hideCart,
   selectProducts,
   selectShowCart,
@@ -11,6 +12,7 @@ import { Button } from "../components/Button";
 import { ETHPrice } from "../products/ETHPrice";
 import { BackButton } from "../components/BackButton";
 import { ShoppingCartItem } from "./ShoppingCartItem";
+import { useFakeMutation } from "@/lib/mutation/useFakeMutation";
 
 export function ShoppingCart() {
   const show = useAppSelector(selectShowCart);
@@ -26,6 +28,10 @@ function ShoppingCartInner() {
   const dispatch = useAppDispatch();
   const products = Object.values(useAppSelector(selectProducts));
   const total = useAppSelector(selectTotal);
+
+  const { mutate, isPending, isSuccess } = useFakeMutation(1000, {
+    onSuccess: () => dispatch(clearCart()),
+  });
 
   return (
     <div className="w-full min-[800px]:w-[690px] h-screen max-h-screen min-h-screen fixed bg-dark z-10 overflow-hidden min-[800px]:left-0 flex flex-col p-8">
@@ -48,7 +54,17 @@ function ShoppingCartInner() {
           <span className="text-xl font-bold">TOTAL</span>
           <ETHPrice price={total} />
         </div>
-        <Button className="w-full">Finalizar Compra</Button>
+        <Button
+          className="w-full"
+          disabled={isPending || isSuccess}
+          onClick={() => mutate()}
+        >
+          {isPending
+            ? "PROCESSSANDO A COMPRA..."
+            : isSuccess
+            ? "COMPRA FINALIZADA"
+            : "FINALIZAR COMPRA"}
+        </Button>
       </div>
     </div>
   );

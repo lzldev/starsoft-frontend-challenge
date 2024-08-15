@@ -20,6 +20,9 @@ export const shoppingCartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: (create) => ({
+    clearCart: create.reducer((state) => {
+      state.products = {};
+    }),
     removeProduct: create.reducer(
       (state, { payload }: PayloadAction<{ id: number; count: number }>) => {
         const product = state.products[payload.id];
@@ -73,8 +76,14 @@ export const shoppingCartSlice = createSlice({
   },
 });
 
-export const { hideCart, showCart, toggleCart, addProduct, removeProduct } =
-  shoppingCartSlice.actions;
+export const {
+  hideCart,
+  showCart,
+  toggleCart,
+  addProduct,
+  removeProduct,
+  clearCart,
+} = shoppingCartSlice.actions;
 
 export const { selectShowCart, selectCount, selectProducts, selectTotal } =
   shoppingCartSlice.selectors;

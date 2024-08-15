@@ -2,15 +2,22 @@ import Image from "next/image";
 import { ETHPrice } from "./ETHPrice";
 import { Button } from "../components/Button";
 import { Product } from "@/lib/schema/product";
-import { useAppDispatch } from "@/lib/hooks";
-import { addProduct } from "@/lib/features/shoppingCartSlice";
+import { useAppDispatch, useAppSelector } from "@/lib/hooks";
+import { addProduct, selectProducts } from "@/lib/features/shoppingCartSlice";
+import { createSelector } from "@reduxjs/toolkit";
 
 export type ProductCardProps = {
   product: Product;
 };
 
+const selectAdded = createSelector(
+  [selectProducts, (_, id: number) => id],
+  (products, productId) => !!products[productId]
+);
+
 export function ProductCard({ product }: ProductCardProps) {
   const dispatch = useAppDispatch();
+  const added = useAppSelector((s) => selectAdded(s, product.id));
 
   return (
     <div className="w-[345px] h-[555px]  bg-darker flex flex-col items-center justify-center gap-12 p-7 rounded-default">
@@ -33,10 +40,17 @@ export function ProductCard({ product }: ProductCardProps) {
         <div className="flex flex-col justify-between flex-1 w-full gap-2">
           <ETHPrice price={product.price} />
           <Button
+            variant={added ? "primary" : "dark"}
             className="flex-1"
-            onClick={() => dispatch(addProduct(product))}
+            disabled={added}
+            onClick={() => {
+              if (added) {
+                return;
+              }
+              dispatch(addProduct(product));
+            }}
           >
-            COMPRAR
+            {added ? "ADICIONADO AO CARRINHO" : "COMPRAR"}
           </Button>
         </div>
       </div>
