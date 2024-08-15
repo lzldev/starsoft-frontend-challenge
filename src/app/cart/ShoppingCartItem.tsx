@@ -32,7 +32,7 @@ export function ShoppingCartItem({
       <div className="flex flex-col flex-1 h-full">
         <div className="flex-col flex flex-grow">
           <span className="text-xl font-medium text-white">{product.name}</span>
-          <span className="overflow-hidden break-all align-top text-xxs font-lighter text-ellipsis line-clamp-3">
+          <span className="overflow-hidden break-all align-top text-xxs font-lighter text-ellipsis line-clamp-1 md:line-clamp-3">
             {product.description}
           </span>
         </div>
